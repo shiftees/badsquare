@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 27.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#333333;}
+</style>
+<symbol  id="Clock" viewBox="-32 -32 64 64">
+	<path d="M0,32c-17.67,0-32-14.33-32-32s14.33-32,32-32S32-17.67,32,0S17.67,32,0,32z M0-25c-13.79,0-25,11.21-25,25s11.21,25,25,25
+		S25,13.79,25,0S13.79-25,0-25z"/>
+</symbol>
+<symbol  id="Volume_High" viewBox="-33.09 -22.82 30.1 45.59">
+	<polygon class="st0" points="-33.09,9.72 -33.09,-9.77 -19.69,-9.77 -2.99,-22.82 -2.99,22.77 -19.69,9.72 	"/>
+</symbol>
+<use xlink:href="#Clock"  width="64" height="64" x="-32" y="-32" transform="matrix(1 0 0 -1 955.7957 1055.2632)" style="overflow:visible;"/>
+<g>
+	
+		<use xlink:href="#Volume_High"  width="30.1" height="45.59" id="XMLID_00000022542766702773736960000009429611889929550736_" x="-33.09" y="-22.82" transform="matrix(4.861 0 0 -4.9246 254.7381 256.3155)" style="overflow:visible;"/>
+	<path class="st0" d="M435.76,75.3c-49.98-50-115.51-74.98-181.02-74.98S123.71,25.3,73.71,75.3c-99.97,99.97-99.97,262.06,0,362.03
+		c49.99,49.98,115.51,74.98,181.02,74.98s131.04-25,181.02-74.98C535.73,337.36,535.73,175.27,435.76,75.3z M407.48,409.05
+		c-40.8,40.8-95.05,63.27-152.74,63.27S142.8,449.85,102,409.05c-84.21-84.22-84.21-221.25,0-305.47
+		c40.8-40.8,95.05-63.27,152.74-63.27s111.95,22.47,152.74,63.27C491.69,187.8,491.69,324.83,407.48,409.05z"/>
+</g>
+<rect x="251.93" y="242.34" transform="matrix(0.7071 0.7071 -0.7071 0.7071 283.532 -172.5067)" class="st0" width="196.14" height="27.31"/>
+<rect x="251.93" y="242.34" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -78.5067 322.468)" class="st0" width="196.14" height="27.31"/>
+</svg>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 27.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#721B9B;}
+</style>
+<symbol  id="Volume_High" viewBox="-33.09 -31.18 66.18 62.35">
+	<polygon class="st0" points="-33.09,9.72 -33.09,-9.77 -19.69,-9.77 -2.99,-22.82 -2.99,22.77 -19.69,9.72 	"/>
+	<path class="st0" d="M17.18,31.18l-3.93-6.18c7.15-3.08,12.57-13.29,12.57-25.02c0-11.63-5.33-21.77-12.39-24.94l3.84-6.21
+		c9.23,4.71,15.81,16.88,15.81,31.15C33.09,14.3,26.47,26.5,17.18,31.18z"/>
+	<path class="st0" d="M9.54,19.15L5.7,13.1c3.17-2.83,5.31-7.7,5.31-13.13c0-5.27-2.02-10.02-5.04-12.88l3.79-6.13
+		c5.12,4.05,8.51,11.05,8.51,19.01C18.28,8.05,14.79,15.13,9.54,19.15z"/>
+</symbol>
+<use xlink:href="#Volume_High"  width="66.18" height="62.35" id="XMLID_00000080200358646607149310000003046913181280819123_" x="-33.09" y="-31.18" transform="matrix(7.737 0 0 -7.8381 256 256)" style="overflow:visible;"/>
+</svg>

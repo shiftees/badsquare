@@ -1,0 +1,272 @@
+@font-face {
+    font-family: "Permanent Marker";
+    src: url("../fonts/Permanent_Marker/PermanentMarker-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Regular style */
+@font-face {
+    font-family: "Arvo";
+    src: url("../fonts/Arvo/Arvo-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Italic style */
+@font-face {
+    font-family: "Arvo";
+    src: url("../fonts/Arvo/Arvo-Italic.ttf") format("truetype");
+    font-weight: normal;
+    font-style: italic;
+}
+
+/* Bold style */
+@font-face {
+    font-family: "Arvo";
+    src: url("../fonts/Arvo/Arvo-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* Bold Italic style */
+@font-face {
+    font-family: "Arvo";
+    src: url("../fonts/Arvo/Arvo-BoldItalic.ttf") format("truetype");
+    font-weight: bold;
+    font-style: italic;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 16px;
+}
+body {
+    height: 100vh;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Arvo", serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow: hidden;
+    background-image: url(../img/background.jpg);
+    background-size: 100% 100%;
+}
+#stage {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+h1 {
+    font-weight: 800;
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 1rem;
+    font-family: "Permanent Marker", cursive;
+}
+#game {
+    width: 1024px;
+    height: 768px;
+    background-color: #000;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border: 20px solid #333;
+    border-radius: 50px;
+}
+#game.highest #alert {
+    display: block;
+}
+#game.dead {
+    border-color: #880000;
+    background-color: #110000;
+}
+#game.dead #score {
+    color: #880000;
+    border-color: #880000;
+}
+#score {
+    font-size: 20rem;
+    color: #666;
+    font-weight: 600;
+    line-height: 14.75rem;
+    letter-spacing: -100%;
+    font-kerning: none;
+    white-space: no-wrap;
+    user-select: none;
+    padding: 1.5rem 2.5rem;
+    border-radius: 50px;
+    vertical-align: top;
+    text-align: center;
+    width: 100%;
+}
+#game.dead #count {
+    color: #880000;
+}
+#game.dead #comment {
+    color: #880000;
+}
+#count {
+    font-size: 4rem;
+    color: #666;
+    font-weight: 600;
+    user-select: none;
+    text-align: center;
+    width: 100%;
+}
+#comment {
+    font-size: 4rem;
+    color: #666;
+    font-weight: 600;
+    user-select: none;
+    text-align: center;
+    width: 100%;
+}
+.square {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+}
+.dead .square {
+    background-color: #880000;
+}
+.mouse {
+    border-radius: 50%;
+    background-color: #eee;
+    pointer-events: none;
+    position: absolute;
+    transform: translateX(-50%) translateY(-50%);
+}
+.mouse.dead {
+    background-color: #880000;
+}
+#high-scores {
+    margin: 1rem 0 2rem 1.5rem;
+    align-self: flex-start;
+    text-transform: uppercase;
+    width: 325px;
+}
+#high-scores h2 {
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 0.51rem;
+    font-weight: 800;
+}
+#high-scores ul {
+    max-height: calc(100% - 60px);
+    overflow: hidden;
+}
+#high-scores li {
+    list-style: none;
+    font-size: 1rem;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#high-scores li .title {
+    color: #333;
+    font-size: 1rem;
+    font-weight: 600;
+}
+#high-scores li .num {
+    color: #fff;
+    margin-right: 0.25rem;
+    font-weight: 800;
+}
+#high-scores li .label {
+    color: #fff;
+    margin-right: 0.25rem;
+    font-weight: 800;
+}
+#high-scores li .total {
+    color: #666;
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-right: 0.25rem;
+}
+.container {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+.copyright {
+    color: #666;
+    margin: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    width: 100%;
+    display: flex;
+    gap: 0.25rem;
+    margin-top: 1.5rem;
+}
+.copyright a {
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+}
+.copyright span {
+    display: inline-block;
+}
+.copyright a:hover {
+    text-decoration: underline;
+}
+#highest,
+#high-scores li .num.highest {
+    color: #fbad00;
+}
+h3 {
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.75rem;
+    font-weight: 800;
+}
+#alert {
+    color: #fbad00;
+    font-weight: 800;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: none;
+}
+.version {
+    margin-left: auto;
+}
+#title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#title img {
+    width: 50px;
+    height: 50px;
+}
+
+#stage.audioEnabled #audioOn {
+    display: none;
+}
+#stage.audioEnabled #audioOff {
+    display: inline-block;
+}
+#audioOff {
+    display: none;
+    cursor: pointer;
+}
+#audioOn {
+    display: inline-block;
+    cursor: pointer;
+}
