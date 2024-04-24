@@ -269,7 +269,7 @@ h3 {
     display: inline-block;
     cursor: pointer;
 }
-@media only screen and (min-width: 1367px) and (orientation: landscape) {
+@media only screen and (min-width: 1367px) {
     #stage {
         max-width: 1440px;
         max-height: 1000px;
