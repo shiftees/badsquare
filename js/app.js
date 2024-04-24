@@ -103,7 +103,7 @@ const onEnterFrame = () => {
         const mouseLeft = mouse.getBoundingClientRect().left + mouse.getBoundingClientRect().width / 2
         const diffY = mouseTop - prevY
         const diffX = mouseLeft - prevX
-        const MAX_SQUARES = NUM_SQUARES * 1.25 > 12 ? 12 : NUM_SQUARES * 1.25
+        const MAX_SQUARES = NUM_SQUARES * 1.5> 12 ? 12 : NUM_SQUARES * 1.5
         const thirdY = (diffY / MAX_TRAILS) * MAX_SQUARES
         const thirdX = (diffX / MAX_TRAILS) * MAX_SQUARES
         const newY = mouseTop - thirdY
@@ -234,6 +234,7 @@ const renderScore = () => {
     highest.textContent = topScore
     topItem && topItem.classList.add("highest")
 }
+
 const renderSquare = () => {
     const obj = document.createElement("div")
     obj.classList.add("square")
