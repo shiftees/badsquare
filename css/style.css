@@ -4,7 +4,6 @@
     font-weight: normal;
     font-style: normal;
 }
-
 /* Regular style */
 @font-face {
     font-family: "Arvo";
@@ -12,7 +11,6 @@
     font-weight: normal;
     font-style: normal;
 }
-
 /* Italic style */
 @font-face {
     font-family: "Arvo";
@@ -20,7 +18,6 @@
     font-weight: normal;
     font-style: italic;
 }
-
 /* Bold style */
 @font-face {
     font-family: "Arvo";
@@ -28,7 +25,6 @@
     font-weight: bold;
     font-style: normal;
 }
-
 /* Bold Italic style */
 @font-face {
     font-family: "Arvo";
@@ -36,7 +32,6 @@
     font-weight: bold;
     font-style: italic;
 }
-
 * {
     margin: 0;
     padding: 0;
@@ -47,6 +42,7 @@ html {
 }
 body {
     height: 100vh;
+    width: 100vw;
     background-color: #000;
     display: flex;
     justify-content: center;
@@ -62,17 +58,18 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    height: 100%;
+    max-height: 1000px;
 }
 h1 {
     font-weight: 800;
     font-size: 3rem;
     color: #fff;
-    margin-bottom: 1rem;
     font-family: "Permanent Marker", cursive;
 }
 #game {
-    width: 1024px;
-    height: 768px;
+    flex-grow: 1;
+    width: 100vw;
     background-color: #000;
     overflow: hidden;
     display: flex;
@@ -155,6 +152,7 @@ h1 {
     align-self: flex-start;
     text-transform: uppercase;
     width: 325px;
+    display: none;
 }
 #high-scores h2 {
     color: #fff;
@@ -200,18 +198,19 @@ h1 {
     display: flex;
     flex-direction: row;
     position: relative;
+    flex-grow: 1;
+    padding: 0 1rem;
+    width: 100vw;
 }
 .copyright {
     color: #666;
-    margin: 1rem;
     font-size: 1rem;
     font-weight: 600;
     letter-spacing: 1px;
     text-transform: uppercase;
-    width: 100%;
     display: flex;
     gap: 0.25rem;
-    margin-top: 1.5rem;
+    padding: 1rem;
 }
 .copyright a {
     color: #fff;
@@ -249,6 +248,7 @@ h3 {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    padding: 0 1rem;
 }
 
 #title img {
@@ -269,4 +269,22 @@ h3 {
 #audioOn {
     display: inline-block;
     cursor: pointer;
+}
+@media screen and (min-width: 1081px) {
+    #stage {
+        max-width: 1440px;
+
+        height: 100%;
+    }
+    #high-scores {
+        display: block;
+    }
+    #game {
+        width: 1024px;
+        height: 768px;
+    }
+    .container {
+        width: auto;
+        flex-grow: 0;
+    }
 }

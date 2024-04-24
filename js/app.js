@@ -103,7 +103,7 @@ const onEnterFrame = () => {
         const mouseLeft = mouse.getBoundingClientRect().left + mouse.getBoundingClientRect().width / 2
         const diffY = mouseTop - prevY
         const diffX = mouseLeft - prevX
-        const MAX_SQUARES = NUM_SQUARES * 1.5> 12 ? 12 : NUM_SQUARES * 1.5
+        const MAX_SQUARES = NUM_SQUARES * 1.5 > 12 ? 12 : NUM_SQUARES * 1.5
         const thirdY = (diffY / MAX_TRAILS) * MAX_SQUARES
         const thirdX = (diffX / MAX_TRAILS) * MAX_SQUARES
         const newY = mouseTop - thirdY
@@ -250,7 +250,7 @@ const renderSquare = () => {
     obj.style.height = `${(RANGE / 100) * PERCENT_FAST + MIN_HEIGHT}px`
     if (obj.seed > 90) obj.seed = 90
     if (obj.seed < 10) obj.seed = 10
-    console.log(obj.axis)
+
     switch (obj.axis) {
         case 0:
             obj.style.top = 0
@@ -271,7 +271,6 @@ const renderSquare = () => {
             obj.top = obj.seed
             break
         case 3:
-            console.log("huh")
             obj.style.left = `100%`
             obj.left = 100
             obj.style.top = `${obj.seed}%`
@@ -295,8 +294,13 @@ let mouseX = 0
 let mouseY = 0
 
 const mouseMove = (e) => {
-    mouseX = e.clientX
-    mouseY = e.clientY
+    if (e.touches) {
+        mouseX = e.touches[0].clientX
+        mouseY = e.touches[0].clientY
+    } else {
+        mouseX = e.clientX
+        mouseY = e.clientY
+    }
 }
 
 // Utilities.js
@@ -323,3 +327,4 @@ const getDate = () => {
 
 window.addEventListener("load", load)
 document.addEventListener("mousemove", mouseMove)
+document.addEventListener("touchmove", mouseMove)
