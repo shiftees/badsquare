@@ -192,6 +192,9 @@ const initAudio = () => {
 }
 
 const load = () => {
+    if (window.location.host.indexOf("github.io") > -1 && window.location.protocol != "https:") {
+        window.location.protocol = "https"
+    }
     renderSquare()
     for (let mice = 0; mice < MAX_TRAILS; mice++) {
         renderMouse(mice + 1)
