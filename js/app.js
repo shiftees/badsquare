@@ -204,38 +204,40 @@ const load = () => {
     onEnterFrame()
 }
 const initFullscreen = () => {
-    fullscreen.addEventListener("click", () => {
-        if (!document.fullscreenElement) {
-            // Enter fullscreen
-            const docElm = document.documentElement
-            if (docElm.requestFullscreen) {
-                docElm.requestFullscreen()
-            } else if (docElm.mozRequestFullScreen) {
-                /* Firefox */
-                docElm.mozRequestFullScreen()
-            } else if (docElm.webkitRequestFullscreen) {
-                /* Chrome, Safari and Opera */
-                docElm.webkitRequestFullscreen()
-            } else if (docElm.msRequestFullscreen) {
-                /* IE/Edge */
-                docElm.msRequestFullscreen()
+    if (fullscreen) {
+        fullscreen.addEventListener("click", () => {
+            if (!document.fullscreenElement) {
+                // Enter fullscreen
+                const docElm = document.documentElement
+                if (docElm && docElm.requestFullscreen) {
+                    docElm.requestFullscreen()
+                } else if (docElm.mozRequestFullScreen) {
+                    /* Firefox */
+                    docElm.mozRequestFullScreen()
+                } else if (docElm.webkitRequestFullscreen) {
+                    /* Chrome, Safari and Opera */
+                    docElm.webkitRequestFullscreen()
+                } else if (docElm.msRequestFullscreen) {
+                    /* IE/Edge */
+                    docElm.msRequestFullscreen()
+                }
+            } else {
+                // Exit fullscreen
+                if (document.exitFullscreen) {
+                    document.exitFullscreen()
+                } else if (document.mozCancelFullScreen) {
+                    /* Firefox */
+                    document.mozCancelFullScreen()
+                } else if (document.webkitExitFullscreen) {
+                    /* Chrome, Safari and Opera */
+                    document.webkitExitFullscreen()
+                } else if (document.msExitFullscreen) {
+                    /* IE/Edge */
+                    document.msExitFullscreen()
+                }
             }
-        } else {
-            // Exit fullscreen
-            if (document.exitFullscreen) {
-                document.exitFullscreen()
-            } else if (document.mozCancelFullScreen) {
-                /* Firefox */
-                document.mozCancelFullScreen()
-            } else if (document.webkitExitFullscreen) {
-                /* Chrome, Safari and Opera */
-                document.webkitExitFullscreen()
-            } else if (document.msExitFullscreen) {
-                /* IE/Edge */
-                document.msExitFullscreen()
-            }
-        }
-    })
+        })
+    }
 }
 
 // Render Functions
