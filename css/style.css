@@ -198,7 +198,6 @@ h1 {
     flex-direction: row;
     position: relative;
     flex-grow: 1;
-    padding: 0 1rem;
     width: 100vw;
 }
 .copyright {
@@ -248,6 +247,8 @@ h3 {
     align-items: center;
     justify-content: space-between;
     padding: 0 1rem;
+
+    width: 100%;
 }
 #fullscreen {
     margin-left: auto;
@@ -289,6 +290,12 @@ h3 {
         width: auto;
         flex-grow: 0;
     }
+    #title.mobile {
+        display: none;
+    }
+    .copyright.mobile {
+        display: none;
+    }
 }
 
 @media only screen and (max-width: 428px) {
@@ -297,5 +304,36 @@ h3 {
     }
     #stage {
         max-height: 100vh;
+    }
+}
+
+@media only screen and (max-width: 1366px) {
+    #title.desktop {
+        display: none;
+    }
+    #title.mobile {
+        padding: 1rem 2rem;
+        margin-bottom: auto;
+    }
+    #title.mobile h1 {
+        font-size: 2rem;
+    }
+    .copyright.desktop {
+        display: none;
+    }
+    .copyright.mobile {
+        margin-top: auto;
+    }
+    #high-scores.mobile {
+        display: block;
+        width: auto;
+        align-self: center;
+        margin: 0 1rem 0 auto;
+    }
+    #high-scores.mobile h3 {
+        margin-bottom: 0;
+    }
+    #fullscreen.desktop {
+        display: none;
     }
 }

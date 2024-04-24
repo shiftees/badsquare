@@ -12,7 +12,7 @@
     </head>
     <body>
         <div id="stage">
-            <div id="title">
+            <div id="title" class="desktop">
                 <h1>BadSquare.com</h1>
                 <img id="fullscreen" src="./img/fullscreen.svg" />
                 <img id="audioOn" src="./img/sound-on.svg" />
@@ -20,18 +20,35 @@
             </div>
             <div class="container">
                 <div id="game">
+                    <div id="title" class="mobile">
+                        <h1>BadSquare.com</h1>
+                        <div id="high-scores" class="mobile">
+                            <h3>YOUR HIGHEST SCORE - <span id="highest" class="highest">0</span></h3>
+                        </div>
+                        <img id="fullscreen" class="desktop" src="./img/fullscreen.svg" />
+                        <img id="audioOn" src="./img/sound-on.svg" />
+                        <img id="audioOff" src="./img/sound-off.svg" />
+                    </div>
                     <div id="alert">HIGH SCORE</div>
                     <div id="count">Loading...</div>
                     <div id="score">Loading...</div>
                     <div id="comment">Loading...</div>
+                    <div class="copyright mobile">
+                        <span>&copy; 2024</span>
+                        <a href="https://github.com/shiftees/badsquare" target="_blank">BAD</a>
+                        <span>. ALL RIGHTS RESERVED. </span>
+                        <a href="https://shiftees.github.io/badsquare/">BADSQUARE.COM</a>
+                        <span>. GO ON THEN, YOU WON'T.</span>
+                        <span class="version">v0.0.13</span>
+                    </div>
                 </div>
-                <div id="high-scores">
+                <div id="high-scores" class="desktop">
                     <h2>SCORE BOARD</h2>
                     <h3>YOUR HIGHEST SCORE - <span id="highest" class="highest">0</span></h3>
                     <ul></ul>
                 </div>
             </div>
-            <div class="copyright">
+            <div class="copyright desktop">
                 <span>&copy; 2024</span>
                 <a href="https://github.com/shiftees/badsquare" target="_blank">BAD</a>
                 <span>. ALL RIGHTS RESERVED. </span>
