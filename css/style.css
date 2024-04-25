@@ -36,6 +36,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 html {
     font-size: 16px;
@@ -53,6 +58,7 @@ body {
     overflow: hidden;
     background-image: url(../img/background.jpg);
     background-size: 100% 100%;
+    cursor:cell
 }
 #stage {
     display: flex;
@@ -95,15 +101,8 @@ h1 {
     color: #666;
     font-weight: 600;
     line-height: 14.75rem;
-    letter-spacing: -100%;
-    font-kerning: none;
-    white-space: no-wrap;
     user-select: none;
-    padding: 1.5rem 2.5rem;
-    border-radius: 50px;
-    vertical-align: top;
     text-align: center;
-    width: 100%;
 }
 #game.dead #count {
     color: #880000;
@@ -221,6 +220,8 @@ h1 {
 .copyright a:hover {
     text-decoration: underline;
 }
+
+#highestMobile,
 #highest,
 #high-scores li .num.highest {
     color: #fbad00;
@@ -281,6 +282,10 @@ h3 {
 }
 .favicon {
     margin-right: 1rem;
+}
+.score-row {
+    width: 100%;
+    padding: 1.5rem 2.5rem;
 }
 @media only screen and (min-width: 1367px) {
     #stage {

@@ -53,7 +53,7 @@ const onEnterFrame = () => {
 
     //Update Comment
 
-    comment.textContent = dead ? "WE FUCKED UP" : COMMENTS[NUM_SQUARES - 1]
+    comment.textContent = dead ? "FUCK" : COMMENTS[NUM_SQUARES - 1]
 
     /*
      *   Square Related Functions
@@ -150,6 +150,7 @@ const onEnterFrame = () => {
     }
     // Show Points on game
     document.querySelectorAll(".square")
+    console.log(points)
     score.textContent = points
     if (points > topScore && topScore > 0) {
         game.classList.add("highest")
@@ -271,7 +272,9 @@ const renderScore = () => {
         }
         item.classList.remove("highest")
     })
+    console.log("topScore", topScore)
     highest.textContent = topScore
+    highestMobile.textContent = topScore
     topItem && topItem.classList.add("highest")
 }
 
