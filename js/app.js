@@ -200,7 +200,7 @@ const load = () => {
         renderMouse(mice + 1)
     }
     initAudio()
-    initFullscreen()
+    //initFullscreen()
     onEnterFrame()
 }
 const initFullscreen = () => {
