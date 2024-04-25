@@ -170,26 +170,26 @@ const reset = () => {
     game.classList.remove("highest")
 }
 
-const initAudio = () => {
-    stage.addEventListener("click", function () {
-        var audioContext = new AudioContext()
-        var buffer = audioContext.createBuffer(1, 1, 22050)
-        var source = audioContext.createBufferSource()
-        source.buffer = buffer
-        source.connect(audioContext.destination)
-        source.start()
-    })
-    audioOn.addEventListener("click", () => {
-        stage.classList.add("audioEnabled")
-        playSound("song", true)
-    })
-    audioOff.addEventListener("click", () => {
-        stage.classList.remove("audioEnabled")
-        SOUNDS.forEach((sound) => {
-            sound.pause()
-        })
-    })
-}
+// const initAudio = () => {
+//     stage.addEventListener("click", function () {
+//         var audioContext = new AudioContext()
+//         var buffer = audioContext.createBuffer(1, 1, 22050)
+//         var source = audioContext.createBufferSource()
+//         source.buffer = buffer
+//         source.connect(audioContext.destination)
+//         source.start()
+//     })
+//     audioOn.addEventListener("click", () => {
+//         stage.classList.add("audioEnabled")
+//         playSound("song", true)
+//     })
+//     audioOff.addEventListener("click", () => {
+//         stage.classList.remove("audioEnabled")
+//         SOUNDS.forEach((sound) => {
+//             sound.pause()
+//         })
+//     })
+// }
 
 const load = () => {
     if (window.location.host.indexOf("github.io") > -1 && window.location.protocol != "https:") {
@@ -199,46 +199,46 @@ const load = () => {
     for (let mice = 0; mice < MAX_TRAILS; mice++) {
         renderMouse(mice + 1)
     }
-    initAudio()
+    // initAudio()
     //initFullscreen()
     onEnterFrame()
 }
-const initFullscreen = () => {
-    if (fullscreen) {
-        fullscreen.addEventListener("click", () => {
-            if (!document.fullscreenElement) {
-                // Enter fullscreen
-                const docElm = document.documentElement
-                if (docElm && docElm.requestFullscreen) {
-                    docElm.requestFullscreen()
-                } else if (docElm.mozRequestFullScreen) {
-                    /* Firefox */
-                    docElm.mozRequestFullScreen()
-                } else if (docElm.webkitRequestFullscreen) {
-                    /* Chrome, Safari and Opera */
-                    docElm.webkitRequestFullscreen()
-                } else if (docElm.msRequestFullscreen) {
-                    /* IE/Edge */
-                    docElm.msRequestFullscreen()
-                }
-            } else {
-                // Exit fullscreen
-                if (document.exitFullscreen) {
-                    document.exitFullscreen()
-                } else if (document.mozCancelFullScreen) {
-                    /* Firefox */
-                    document.mozCancelFullScreen()
-                } else if (document.webkitExitFullscreen) {
-                    /* Chrome, Safari and Opera */
-                    document.webkitExitFullscreen()
-                } else if (document.msExitFullscreen) {
-                    /* IE/Edge */
-                    document.msExitFullscreen()
-                }
-            }
-        })
-    }
-}
+// const initFullscreen = () => {
+//     if (fullscreen) {
+//         fullscreen.addEventListener("click", () => {
+//             if (!document.fullscreenElement) {
+//                 // Enter fullscreen
+//                 const docElm = document.documentElement
+//                 if (docElm && docElm.requestFullscreen) {
+//                     docElm.requestFullscreen()
+//                 } else if (docElm.mozRequestFullScreen) {
+//                     /* Firefox */
+//                     docElm.mozRequestFullScreen()
+//                 } else if (docElm.webkitRequestFullscreen) {
+//                     /* Chrome, Safari and Opera */
+//                     docElm.webkitRequestFullscreen()
+//                 } else if (docElm.msRequestFullscreen) {
+//                     /* IE/Edge */
+//                     docElm.msRequestFullscreen()
+//                 }
+//             } else {
+//                 // Exit fullscreen
+//                 if (document.exitFullscreen) {
+//                     document.exitFullscreen()
+//                 } else if (document.mozCancelFullScreen) {
+//                     /* Firefox */
+//                     document.mozCancelFullScreen()
+//                 } else if (document.webkitExitFullscreen) {
+//                     /* Chrome, Safari and Opera */
+//                     document.webkitExitFullscreen()
+//                 } else if (document.msExitFullscreen) {
+//                     /* IE/Edge */
+//                     document.msExitFullscreen()
+//                 }
+//             }
+//         })
+//     }
+// }
 
 // Render Functions
 const renderScore = () => {
