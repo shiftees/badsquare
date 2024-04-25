@@ -273,6 +273,15 @@ h3 {
     display: inline-block;
     cursor: pointer;
 }
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.favicon {
+    margin-right: 1rem;
+}
 @media only screen and (min-width: 1367px) {
     #stage {
         max-width: 1440px;
