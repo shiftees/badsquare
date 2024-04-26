@@ -6,27 +6,20 @@ const MIN_WIDTH = 20
 const MIN_HEIGHT = 20
 const COMMENTS = [
     "NICE AND EASY",
-    "OK",
-    "OK COOL",
-    "THIS ISNT THAT BAD",
-    "WE GOT THIS",
-    "WE GOT THIS",
-    "UM",
-    "THIS IS FINE",
-    "SHIT",
-    "OH SHIT",
-    "FUCK",
-    "FUCK FUCK",
-    "FUCK FUCK FUCK",
-    "OH FUCKING FUCK",
-    "OH FUCKING FUCK",
-    "OH FUCKING FUCK",
-    "OH FUCKING FUCK",
-    "OH FUCKING FUCK",
-    "OH FUCKING FUCK",
-    "OH FUCKING FUCK",
-    "OH FUCKING FUCK",
-    "OH FUCKING FUCK",
+    "Great job",
+    "Keep going",
+    "Impressive",
+    "Superb",
+    "Nicely done",
+    "You're a natural",
+    "I'm proud of you",
+    "You're a bright light",
+    "You Shine Radiant",
+    "Amazing effort",
+    "Nothing can stop you",
+    "Leveling up",
+    "Masterstroke",
+    "You make it look easy",
 ]
 const SOUNDS = []
 let clock
@@ -34,10 +27,14 @@ let frame = 0
 let points = 0
 let dead = false
 let topScore = 0
+let track = 1
+const MAX_TRACK = 4
+let songPlaying = false
 
 const playSound = (sound, loop = false) => {
-    var audio = new Audio(`./mp3/${sound}.wav`)
+    var audio = new Audio(`./mp3/${sound}.mp3`)
     audio.loop = loop
+    audio.volume = 0.5
     audio.play()
     SOUNDS.push(audio)
 }
@@ -48,12 +45,12 @@ const onEnterFrame = () => {
     let clearScene = true
 
     const NUM_SQUARES = document.querySelectorAll(".square").length
-    // Frame Always Marches On
+
+    // Increment Frame
     frame++
 
     //Update Comment
-
-    comment.textContent = dead ? "FUCK" : COMMENTS[NUM_SQUARES - 1]
+    comment.textContent = dead ? "NICE TRY" : COMMENTS[NUM_SQUARES - 1]
 
     /*
      *   Square Related Functions
@@ -84,11 +81,11 @@ const onEnterFrame = () => {
             }
             if (resetSquare) {
                 square.remove()
-                renderSquare()
+                Square()
                 points++
                 //playSound("win")
                 if (frame > 300 * NUM_SQUARES * 1.5) {
-                    renderSquare()
+                    Square()
                     points++
                 }
             }
@@ -138,6 +135,7 @@ const onEnterFrame = () => {
             clearScene = false
         }
     })
+
     // Finally Check if scene should reset
     if (clearScene && dead) {
         dead = false
@@ -146,11 +144,12 @@ const onEnterFrame = () => {
     } else if (!clearScene && !dead) {
         game.classList.add("dead")
         dead = true
-        renderScore()
+        Score()
     }
-    // Show Points on game
+
+    // Update Score Board
     document.querySelectorAll(".square")
-    console.log(points)
+
     score.textContent = points
     if (points > topScore && topScore > 0) {
         game.classList.add("highest")
@@ -161,88 +160,54 @@ const onEnterFrame = () => {
 }
 
 const reset = () => {
-    //playSound("lose")
     points = 0
     frame = 0
     document.querySelectorAll(".square").forEach((square) => {
         square.remove()
     })
-    renderSquare()
+    Square()
     game.classList.remove("highest")
 }
 
-// const initAudio = () => {
-//     stage.addEventListener("click", function () {
-//         var audioContext = new AudioContext()
-//         var buffer = audioContext.createBuffer(1, 1, 22050)
-//         var source = audioContext.createBufferSource()
-//         source.buffer = buffer
-//         source.connect(audioContext.destination)
-//         source.start()
-//     })
-//     audioOn.addEventListener("click", () => {
-//         stage.classList.add("audioEnabled")
-//         playSound("song", true)
-//     })
-//     audioOff.addEventListener("click", () => {
-//         stage.classList.remove("audioEnabled")
-//         SOUNDS.forEach((sound) => {
-//             sound.pause()
-//         })
-//     })
-// }
+const initAudio = () => {
+    stage.addEventListener("click", function () {
+        var audioContext = new AudioContext()
+        var buffer = audioContext.createBuffer(1, 1, 22050)
+        var source = audioContext.createBufferSource()
+        source.buffer = buffer
+        source.connect(audioContext.destination)
+        source.start()
+    })
+    audioOn.addEventListener("click", () => {
+        stage.classList.add("audioEnabled")
+        playSound("song-" + track, true)
+        track++
+        if (track > MAX_TRACK) track = 1
+    })
+    audioOff.addEventListener("click", () => {
+        stage.classList.remove("audioEnabled")
+        SOUNDS.forEach((sound) => {
+            sound.pause()
+        })
+    })
+}
 
 const load = () => {
     if (window.location.host.indexOf("github.io") > -1 && window.location.protocol != "https:") {
         window.location.protocol = "https"
     }
-    renderSquare()
+    Square()
     for (let mice = 0; mice < MAX_TRAILS; mice++) {
-        renderMouse(mice + 1)
+        Mouse(mice + 1)
     }
-    // initAudio()
-    //initFullscreen()
+    initAudio()
     onEnterFrame()
 }
-// const initFullscreen = () => {
-//     if (fullscreen) {
-//         fullscreen.addEventListener("click", () => {
-//             if (!document.fullscreenElement) {
-//                 // Enter fullscreen
-//                 const docElm = document.documentElement
-//                 if (docElm && docElm.requestFullscreen) {
-//                     docElm.requestFullscreen()
-//                 } else if (docElm.mozRequestFullScreen) {
-//                     /* Firefox */
-//                     docElm.mozRequestFullScreen()
-//                 } else if (docElm.webkitRequestFullscreen) {
-//                     /* Chrome, Safari and Opera */
-//                     docElm.webkitRequestFullscreen()
-//                 } else if (docElm.msRequestFullscreen) {
-//                     /* IE/Edge */
-//                     docElm.msRequestFullscreen()
-//                 }
-//             } else {
-//                 // Exit fullscreen
-//                 if (document.exitFullscreen) {
-//                     document.exitFullscreen()
-//                 } else if (document.mozCancelFullScreen) {
-//                     /* Firefox */
-//                     document.mozCancelFullScreen()
-//                 } else if (document.webkitExitFullscreen) {
-//                     /* Chrome, Safari and Opera */
-//                     document.webkitExitFullscreen()
-//                 } else if (document.msExitFullscreen) {
-//                     /* IE/Edge */
-//                     document.msExitFullscreen()
-//                 }
-//             }
-//         })
-//     }
-// }
 
-// Render Functions
-const renderScore = () => {
+/*
+ *  Components
+ */
+const Score = () => {
     if (points === 0) return
     const obj = document.createElement("li")
     const label = document.createElement("span")
@@ -272,13 +237,13 @@ const renderScore = () => {
         }
         item.classList.remove("highest")
     })
-    console.log("topScore", topScore)
+
     highest.textContent = topScore
     highestMobile.textContent = topScore
     topItem && topItem.classList.add("highest")
 }
 
-const renderSquare = () => {
+const Square = () => {
     const obj = document.createElement("div")
     obj.classList.add("square")
     obj.axis = getRand(3)
@@ -323,7 +288,7 @@ const renderSquare = () => {
     game.appendChild(obj)
 }
 
-const renderMouse = (num) => {
+const Mouse = (num) => {
     const obj = document.createElement("div")
     obj.classList.add("mouse")
     obj.num = num
@@ -357,6 +322,7 @@ const getRand = (max) => {
     return Math.round(Math.random() * max)
 }
 
+// D
 const getDate = () => {
     const now = new Date()
     const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
